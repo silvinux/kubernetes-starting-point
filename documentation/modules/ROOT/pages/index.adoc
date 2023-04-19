@@ -1,20 +1,35 @@
-= Welcome to Template Tutorial
+= Kubernetes, where should I start?
 :page-layout: home
 :!sectids:
 
 [.text-center.strong]
-== Publish Services to Kubernetes
+== Insights article to discover Kuberbetes from scratch
 
-A Kubernetes tutorial to show how you can deploy a Java service to a Kubernetes cluster as it was a child game.
+This article presents the initial knowledge of the kubernetes world, focoused from an interesting starting point to any new kubernetes entusastic that wish to discover kubernetes from scratch.
 
 [.tiles.browse]
 == Browse modules
 
 [.tile]
-.xref:01-setup.adoc[Get Started]
-* xref:01-setup.adoc#minikube[Minikube]
+.xref:01-introduction.adoc[Get Started]
+* xref:01-introduction.adoc#container-techonologies[container-techonologies]
 
 [.tile]
-.xref:02-deploy.adoc[Deploying]
-* xref:02-deploy.adoc#package[Package the Application]
-* xref:02-deploy.adoc#deploy[Deploy the Application]
+.xref:02-oci.adoc[OCI]
+* xref:02-oci.adoc##oci-intro[What is OCI]
+* xref:02-oci.adoc#oci-specs[OCI specifications]
+* xref:02-oci.adoc#oci-implementation[OCI implementation]
+
+[.tile]
+.xref:03-container-tools.adoc[Container tools]
+* xref:03-container-tools.adoc#tools-buildah-podman[buildah-podman]
+
+[.tile]
+.xref:04-image-creation.adoc[Image Creation and Build]
+* xref:04-image-creation.adoc#image-build-declarative[image-build-declarative]
+* xref:04-image-creation.adoc#image-build-imperative[image-build-imperative]
+
+[.tile]
+.xref:05-running-containers.adoc[Run a container and verify it works]
+* xref:05-running-containers.adoc#testing-declarative[testing-declarative]
+* xref:05-running-containers.adoc#testing-imperative[testing-imperative]

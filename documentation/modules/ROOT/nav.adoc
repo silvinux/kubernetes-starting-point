@@ -1,7 +1,18 @@
-* xref:01-setup.adoc[1. Setup]
-** xref:01-setup.adoc#prerequisite[Prerequisites]
-** xref:01-setup.adoc#minikube[Setup Minikube]
+* xref:01-introduction.adoc[Get Started]
+** xref:01-introduction.adoc#container-techonologies[container-techonologies]
 
-* xref:02-deploy.adoc[2. Deploy Service]
-** xref:02-deploy.adoc#package[Build Service]
-** xref:02-deploy.adoc#deploy[Deploy Dervice]
+* xref:02-oci.adoc[OCI]
+** xref:02-oci.adoc##oci-intro[What is OCI]
+** xref:02-oci.adoc#oci-specs[OCI specifications]
+** xref:02-oci.adoc#oci-implementation[OCI implementation]
+
+* xref:03-container-tools.adoc[Container tools]
+** xref:03-container-tools.adoc#tools-buildah-podman[buildah-podman]
+
+* xref:04-image-creation.adoc[Image Creation and Build]
+** xref:04-image-creation.adoc#image-build-declarative[image-build-declarative]
+** xref:04-image-creation.adoc#image-build-imperative[image-build-imperative]
+
+* xref:05-running-containers.adoc[Run a container and verify it works]
+** xref:05-running-containers.adoc#testing-declarative[testing-declarative]
+** xref:05-running-containers.adoc#testing-imperative[testing-imperative]

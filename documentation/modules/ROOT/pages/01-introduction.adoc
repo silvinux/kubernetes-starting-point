@@ -1,0 +1,25 @@
+= Getting started
+include::_attributes.adoc[]
+
+Nowadays everyone speaks about Kubernetes and how easy it is to deploy applications in a containerized way across multiple cloud providers in a magical way, but not everyone knows how this technology works under the hood, or even what a container is or if there is a standard around it.
+
+To take the first step into the kubernetes world, a good starting point would be the amazing universe of containers, which is the technology where kubernetes is built onto and what it pretends to orchestrate, its industry standards and most common useful tools to manage it. 
+
+Every history has a beginning and normally is created due to necessity. IT always has been required to share resources, and to do so, the owner must ensure that consumers will not interfere with each other.  
+
+For containers started back in 1979 with Unix chroot. This Unix system call basically allows the user to change a process and its childrens root directory, this way the main process will believe that is in the root directory, isolating it from other processes in the operating system.
+
+It is been a long ride since processes isolation started in 1979 until today, where many technologies has been key to evolve and achieve today’s containers maturity, the most revelevants could be summarized below:
+
+[#container-techonologies]
+- https://en.wikipedia.org/wiki/FreeBSD_jail[FreeBSD Jails]
+- https://en.wikipedia.org/wiki/Linux-VServer[Linux VServer]
+- https://en.wikipedia.org/wiki/Solaris_Containers[Solaris Containers]
+- https://en.wikipedia.org/wiki/OpenVZ[OpenVZ]
+- https://en.wikipedia.org/wiki/Cgroups[Process Containers]
+- https://linuxcontainers.org/lxc/introduction[LXC]
+- https://en.wikipedia.org/wiki/Cloud_Foundry[Cloud Foundry] Warden
+- https://github.com/google/lmctfy[LMCTFY]
+- https://www.docker.com/[Docker]
+- https://github.com/rkt/rkt/[Rocket] (rkt)
+- https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/[Windows Containers]

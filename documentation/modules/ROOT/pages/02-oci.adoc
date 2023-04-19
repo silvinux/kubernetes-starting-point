@@ -1,0 +1,49 @@
+= Open Container Initiative
+include::_attributes.adoc[]
+
+Due to the fact that there are a lot of companies that started to use container technology and there was not a common standard to use it, a large Open Source community started to get around the idea of establishing some rules to standardize the management of this technology, getting under way the Open Container Initiative.
+
+
+[#oci-intro]
+== What is the Open Container Initiative
+
+Let’s start talking about the Open Container Initiative (OCI), which is an open project built from the community and sponsored by the Linux Foundation to define guidelines for container technology, which will state the requirements about the necessary features in the designing of containers formats and runtimes, to be followed by the industry. 
+
+[#oci-specs]
+== OCI specifications
+
+https://opencontainers.org/about/overview/[OCI] has named these guidelines as specifications and currently has been developed the three specs below:
+
+image::oci-specs.png[]
+
+* https://github.com/opencontainers/distribution-spec/blob/main/spec.md[Distribution specification]: a.k.a. distribution-spec, which is in charge of defining the requirements used to ease the distribution of agnostic content types in a standardized way through an API protocol.
+
+* https://github.com/opencontainers/image-spec/blob/main/spec.md[Image specification]: a.k.a.  image-spec, the main purpose of this specification is to prepare images design to be compatible with tools that manage container images.The image-spec/config.md at mainimage spec should follow the below requirements: 
+
+** https://github.com/opencontainers/image-spec/blob/main/manifest.md[Image Manifest]. 
+
+*** Provides unique ID obtained from hashed configuration.
+
+*** Multi-architectural images, grouped into a Main Manifest that can be referenced for platform specific versions.
+
+*** Compatible with runtime-spec
+
+** https://github.com/opencontainers/image-spec/blob/main/image-index.md[Image index] (Optional).
+
+**** Acts as Metadata in a higher level to point specific image manifests
+
+** https://github.com/opencontainers/image-spec/blob/main/layer.md[Filesystem layers]. It defines how to build the filesystem that will be used by the image and how this will be populated, modified and tracked. 
+
+** https://github.com/opencontainers/image-spec/blob/main/config.md[Configuration]. It defines into a json document all properties needed to be applied in the container runtime.
+
+* https://github.com/opencontainers/runtime-spec/blob/main/spec.md[Runtime specification]: a.k.a. Runtime-spec, it defines the necessary metadata to handle how containers should be managed.
+
+[#oci-implementation]
+== OCI implementation
+
+Basically a simple OCI implementation requires at least to specifications to be used, image-spec and runtime-spec and it would follow the workflow described in the below diagram.
+
+image::oci-implementation.png[]
+
+
+As it could be seen, to have the same user experience (UX) using different tools (docker, podman, rkt), should have the same result when the container is managed. The diagram shows that image that includes the necessary information to be deployed in a Container, once the image has been downloaded is sent to the runtime to be processed, the filesystem is unpacked and run it at this point.

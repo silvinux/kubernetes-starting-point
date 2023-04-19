@@ -2,9 +2,9 @@ runtime:
   cache_dir: ./.cache/antora
 
 site:
-  title: Template Tutorial(Dev Mode)
-  url: http://localhost:3000/rhs-build-course/index.html
-  start_page: template-tutorial::index.adoc
+  title: Kubernetes, where should I start? (Dev Mode)
+  url: http://localhost:3000/containers/index.html
+  start_page: containers::index.adoc
 
 content:
   sources:
@@ -13,7 +13,7 @@ content:
       start_path: documentation
 asciidoc:
   attributes:
-    title: Template Tutorial(Dev Mode)
+    title: Kubernetes, where should I start? (Dev Mode)
   extensions:
     - ./lib/remote-include-processor.js
     - ./lib/tab-block.js

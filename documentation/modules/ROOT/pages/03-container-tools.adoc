@@ -1,0 +1,24 @@
+= Container tools
+include::_attributes.adoc[]
+
+A common concern when adopting a new technology is the right tools that should be used in order to leverage the best and efficient way of working to get better results, this is why it should be used tools that are aligned and compliant with https://opencontainers.org/about/overview/[OCI].    
+
+One of the most important changes that has been introduced from Red Hat in containers are tools that do not require root superpowers and it does not depend on a linux daemon, such as Docker, making it more flexible and reachable to a wide range of audience. Buildah, Podman and Skopeo are basic tools that are pretty handy to create, manage and distribute containers and container images aligned to be OCI compatible.
+
+
+
+[#tools-buildah-podman]
+== Buildah and Podman, the basis
+
+Let’s take a look at to Buildah and Podman tools in deeper:  
+
+https://github.com/containers/buildah[Buildah]: its name comes from the word ‘builder’ pronounced with a Boston accent, a funny story that begins with a simple conversation, as  https://www.redhat.com/en/authors/daniel-walsh[Daniel Wash] Senior Distinguished Engineer at Red Hat states in the article https://www.redhat.com/en/blog/daemon-haunted-container-world-no-longer-introducing-buildah-10[Introducing Buildah 1.0] “**__why can’t we create a simple tool to build them without running a container daemon? The engineers asked me what to call it and I responded: “just call it builder.” The engineers heard my Boston accent and `Buildah` was born__**”. 
+
+Buildah is basically a command line tool that is design to create and build container images. Despite being a tool designed to be OCI compatible, it could create images from a traditional Dockerfile too, which give flexibility when needed. Speaking of flexibility, Buildah is a perfect tool to be used in scripting and pipelines, actually it comes in default modules in kubernetes pipelines tools like tekton, which is pretty handy when lifecycle automation of a kubernetes application is needed. 
+
+https://github.com/containers/podman[Podman]: is a command line tool that gets its name not from a funny story like buildah, but more like most of the tools, is an abbreviation of ‘Pod Manager’, and as its name points is designed to manage and run containers, images and volumes. The podman’s core is based on a golang library called libpod, which is in charge of all actions that the tool could perform. 
+
+Podman project also has a child project called Podman Desktop, which allows the user to leverage all podman bondages from the desktop. In version v0.14 has introduced kind support to install kubernetes clusters for testing purposes. More details could be found on the https://podman-desktop.io/[project website].
+
+
+It could be installed in Fedora/Red Hat like distribution through the default package manager a module called container-tools which group a full set of tools to manage containers: https://github.com/containers/buildah[Buildah], https://github.com/containers/podman[Podman], https://github.com/containers/skopeo[Skopeo], https://github.com/containers/container-selinux[Container-selinux], https://github.com/containernetworking/plugins[Containernetworking-plugins], https://github.com/containers/fuse-overlayfs[Fuse-overlayfs], https://github.com/rootless-containers/slirp4netns[slirp4netns]. 
