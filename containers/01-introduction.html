@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting started :: Kubernetes, where should I start?</title>
+    <link rel="canonical" href="https://silvinux.github.io/kubernetes-starting-point/containers/01-introduction.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="02-oci.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://silvinux.github.io/kubernetes-starting-point">Kubernetes, where should I start?</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="containers" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-introduction.html">Get Started</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#container-techonologies">container-techonologies</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-oci.html">OCI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html##oci-intro">What is OCI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html#oci-specs">OCI specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html#oci-implementation">OCI implementation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-container-tools.html">Container tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-container-tools.html#tools-buildah-podman">buildah-podman</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-image-creation.html">Image Creation and Build</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-declarative">image-build-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-imperative">image-build-imperative</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-running-containers.html">Run a container and verify it works</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-running-containers.html#testing-declarative">testing-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-running-containers.html#testing-imperative">testing-imperative</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">k8s</a></li>
+    <li><a href="01-introduction.html">Get Started</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/silvinux/kubernetes-starting-point/edit/master/documentation/modules/ROOT/pages/01-introduction.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Getting started</h1>
+<div class="paragraph">
+<p>Nowadays everyone speaks about Kubernetes and how easy it is to deploy applications in a containerized way across multiple cloud providers in a magical way, but not everyone knows how this technology works under the hood, or even what a container is or if there is a standard around it.</p>
+</div>
+<div class="paragraph">
+<p>To take the first step into the kubernetes world, a good starting point would be the amazing universe of containers, which is the technology where kubernetes is built onto and what it pretends to orchestrate, its industry standards and most common useful tools to manage it.</p>
+</div>
+<div class="paragraph">
+<p>Every history has a beginning and normally is created due to necessity. IT always has been required to share resources, and to do so, the owner must ensure that consumers will not interfere with each other.</p>
+</div>
+<div class="paragraph">
+<p>For containers started back in 1979 with Unix chroot. This Unix system call basically allows the user to change a process and its childrens root directory, this way the main process will believe that is in the root directory, isolating it from other processes in the operating system.</p>
+</div>
+<div class="paragraph">
+<p>It is been a long ride since processes isolation started in 1979 until today, where many technologies has been key to evolve and achieve today’s containers maturity, the most revelevants could be summarized below:</p>
+</div>
+<div id="container-techonologies" class="ulist">
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/FreeBSD_jail">FreeBSD Jails</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Linux-VServer">Linux VServer</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Solaris_Containers">Solaris Containers</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/OpenVZ">OpenVZ</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Cgroups">Process Containers</a></p>
+</li>
+<li>
+<p><a href="https://linuxcontainers.org/lxc/introduction">LXC</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Cloud_Foundry">Cloud Foundry</a> Warden</p>
+</li>
+<li>
+<p><a href="https://github.com/google/lmctfy">LMCTFY</a></p>
+</li>
+<li>
+<p><a href="https://www.docker.com/">Docker</a></p>
+</li>
+<li>
+<p><a href="https://github.com/rkt/rkt/">Rocket</a> (rkt)</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/">Windows Containers</a></p>
+</li>
+</ul>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">k8s</a></span>
+  <span class="next"><a href="02-oci.html">OCI</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

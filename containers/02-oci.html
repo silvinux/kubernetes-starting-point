@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Open Container Initiative :: Kubernetes, where should I start?</title>
+    <link rel="canonical" href="https://silvinux.github.io/kubernetes-starting-point/containers/02-oci.html">
+    <link rel="prev" href="01-introduction.html">
+    <link rel="next" href="03-container-tools.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://silvinux.github.io/kubernetes-starting-point">Kubernetes, where should I start?</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="containers" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-introduction.html">Get Started</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-introduction.html#container-techonologies">container-techonologies</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-oci.html">OCI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="##oci-intro">What is OCI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#oci-specs">OCI specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#oci-implementation">OCI implementation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-container-tools.html">Container tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-container-tools.html#tools-buildah-podman">buildah-podman</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-image-creation.html">Image Creation and Build</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-declarative">image-build-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-imperative">image-build-imperative</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-running-containers.html">Run a container and verify it works</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-running-containers.html#testing-declarative">testing-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-running-containers.html#testing-imperative">testing-imperative</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">k8s</a></li>
+    <li><a href="02-oci.html">OCI</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/silvinux/kubernetes-starting-point/edit/master/documentation/modules/ROOT/pages/02-oci.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Open Container Initiative</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Due to the fact that there are a lot of companies that started to use container technology and there was not a common standard to use it, a large Open Source community started to get around the idea of establishing some rules to standardize the management of this technology, getting under way the Open Container Initiative.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="oci-intro"><a class="anchor" href="#oci-intro"></a>What is the Open Container Initiative</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let’s start talking about the Open Container Initiative (OCI), which is an open project built from the community and sponsored by the Linux Foundation to define guidelines for container technology, which will state the requirements about the necessary features in the designing of containers formats and runtimes, to be followed by the industry.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="oci-specs"><a class="anchor" href="#oci-specs"></a>OCI specifications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://opencontainers.org/about/overview/">OCI</a> has named these guidelines as specifications and currently has been developed the three specs below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/oci-specs.png" alt="oci specs">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/opencontainers/distribution-spec/blob/main/spec.md">Distribution specification</a>: a.k.a. distribution-spec, which is in charge of defining the requirements used to ease the distribution of agnostic content types in a standardized way through an API protocol.</p>
+</li>
+<li>
+<p><a href="https://github.com/opencontainers/image-spec/blob/main/spec.md">Image specification</a>: a.k.a.  image-spec, the main purpose of this specification is to prepare images design to be compatible with tools that manage container images.The image-spec/config.md at mainimage spec should follow the below requirements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/opencontainers/image-spec/blob/main/manifest.md">Image Manifest</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Provides unique ID obtained from hashed configuration.</p>
+</li>
+<li>
+<p>Multi-architectural images, grouped into a Main Manifest that can be referenced for platform specific versions.</p>
+</li>
+<li>
+<p>Compatible with runtime-spec</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://github.com/opencontainers/image-spec/blob/main/image-index.md">Image index</a> (Optional).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Acts as Metadata in a higher level to point specific image manifests</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://github.com/opencontainers/image-spec/blob/main/layer.md">Filesystem layers</a>. It defines how to build the filesystem that will be used by the image and how this will be populated, modified and tracked.</p>
+</li>
+<li>
+<p><a href="https://github.com/opencontainers/image-spec/blob/main/config.md">Configuration</a>. It defines into a json document all properties needed to be applied in the container runtime.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://github.com/opencontainers/runtime-spec/blob/main/spec.md">Runtime specification</a>: a.k.a. Runtime-spec, it defines the necessary metadata to handle how containers should be managed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="oci-implementation"><a class="anchor" href="#oci-implementation"></a>OCI implementation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Basically a simple OCI implementation requires at least to specifications to be used, image-spec and runtime-spec and it would follow the workflow described in the below diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/oci-implementation.png" alt="oci implementation">
+</div>
+</div>
+<div class="paragraph">
+<p>As it could be seen, to have the same user experience (UX) using different tools (docker, podman, rkt), should have the same result when the container is managed. The diagram shows that image that includes the necessary information to be deployed in a Container, once the image has been downloaded is sent to the runtime to be processed, the filesystem is unpacked and run it at this point.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="01-introduction.html">Get Started</a></span>
+  <span class="next"><a href="03-container-tools.html">Container tools</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

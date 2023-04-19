@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://silvinux.github.io/kubernetes-starting-point/containers/01-introduction.html</loc>
+<lastmod>2023-04-19T18:31:23.756Z</lastmod>
+</url>
+<url>
+<loc>https://silvinux.github.io/kubernetes-starting-point/containers/02-oci.html</loc>
+<lastmod>2023-04-19T18:31:23.756Z</lastmod>
+</url>
+<url>
+<loc>https://silvinux.github.io/kubernetes-starting-point/containers/03-container-tools.html</loc>
+<lastmod>2023-04-19T18:31:23.756Z</lastmod>
+</url>
+<url>
+<loc>https://silvinux.github.io/kubernetes-starting-point/containers/04-image-creation.html</loc>
+<lastmod>2023-04-19T18:31:23.756Z</lastmod>
+</url>
+<url>
+<loc>https://silvinux.github.io/kubernetes-starting-point/containers/05-running-containers.html</loc>
+<lastmod>2023-04-19T18:31:23.756Z</lastmod>
+</url>
+<url>
+<loc>https://silvinux.github.io/kubernetes-starting-point/containers/index.html</loc>
+<lastmod>2023-04-19T18:31:23.756Z</lastmod>
+</url>
+</urlset>

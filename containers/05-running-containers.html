@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Run a container and verify it works :: Kubernetes, where should I start?</title>
+    <link rel="canonical" href="https://silvinux.github.io/kubernetes-starting-point/containers/05-running-containers.html">
+    <link rel="prev" href="04-image-creation.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://silvinux.github.io/kubernetes-starting-point">Kubernetes, where should I start?</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="containers" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-introduction.html">Get Started</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-introduction.html#container-techonologies">container-techonologies</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-oci.html">OCI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html##oci-intro">What is OCI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html#oci-specs">OCI specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html#oci-implementation">OCI implementation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-container-tools.html">Container tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-container-tools.html#tools-buildah-podman">buildah-podman</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-image-creation.html">Image Creation and Build</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-declarative">image-build-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-imperative">image-build-imperative</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-running-containers.html">Run a container and verify it works</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#testing-declarative">testing-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#testing-imperative">testing-imperative</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">k8s</a></li>
+    <li><a href="05-running-containers.html">Run a container and verify it works</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/silvinux/kubernetes-starting-point/edit/master/documentation/modules/ROOT/pages/05-running-containers.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Run a container and verify it works</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The last step would be test the image running the container. As the images where created exposing diferent ports and diferents messages, it should be easy to run two containers at once in the same host. Lest&#8217;s get out hands dirty.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing-declarative"><a class="anchor" href="#testing-declarative"></a>Testing the image building using the declarative approach</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the first approach, port 8080 will be used and the index.html will be populated with the message "Hello Kubernetes, DECLARATIVE".</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman run -dit -p8080:8080 --name alpine-net localhost/alpine-net</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the container is running, it could be checked using the command:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman ps -a</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output should be similar to:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">CONTAINER ID  IMAGE                                   COMMAND               CREATED      STATUS      PORTS                   NAMES
+77b8ce568080  localhost/alpine-net:latest  python3 -m http.s...  5 hours ago  Created     0.0.0.0:8080-&gt;8080/tcp  alpine-net</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And it could be confirmed that the container is successfully working using the following command:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl <a href="http://localhost:8080/" class="bare">http://localhost:8080/</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output should be:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Hello Kubernetes, DECLARATIVE</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing-imperative"><a class="anchor" href="#testing-imperative"></a>Testing the image building using the imperative approach</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the second approach, port 9090 will be used and the index.html will be populated with the message "Hello Kubernetes, IMPERATIVE".</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman run -dit -p9090:9090 --name alpine-net-imperative localhost/alpine-net</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the container is running, it could be checked using the command:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman ps -a</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output should be similar to:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">CONTAINER ID  IMAGE                                   COMMAND               CREATED      STATUS      PORTS                   NAMES
+77b8ce569090 localhost/alpine-net-imperative:latest  python3 -m http.s...  5 hours ago  Created     0.0.0.0:9090-&gt;9090/tcp  alpine-net-imperative</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And it could be confirmed that the container is successfully working using the following command:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl <a href="http://localhost:9090/" class="bare">http://localhost:9090/</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output should be:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Hello Kubernetes, IMPERATIVE</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="04-image-creation.html">Image Creation and Build</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

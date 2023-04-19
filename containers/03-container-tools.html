@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Container tools :: Kubernetes, where should I start?</title>
+    <link rel="canonical" href="https://silvinux.github.io/kubernetes-starting-point/containers/03-container-tools.html">
+    <link rel="prev" href="02-oci.html">
+    <link rel="next" href="04-image-creation.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://silvinux.github.io/kubernetes-starting-point">Kubernetes, where should I start?</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="containers" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-introduction.html">Get Started</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-introduction.html#container-techonologies">container-techonologies</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-oci.html">OCI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html##oci-intro">What is OCI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html#oci-specs">OCI specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-oci.html#oci-implementation">OCI implementation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-container-tools.html">Container tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#tools-buildah-podman">buildah-podman</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-image-creation.html">Image Creation and Build</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-declarative">image-build-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-image-creation.html#image-build-imperative">image-build-imperative</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-running-containers.html">Run a container and verify it works</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-running-containers.html#testing-declarative">testing-declarative</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-running-containers.html#testing-imperative">testing-imperative</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">k8s</a></li>
+    <li><a href="03-container-tools.html">Container tools</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/silvinux/kubernetes-starting-point/edit/master/documentation/modules/ROOT/pages/03-container-tools.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Container tools</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A common concern when adopting a new technology is the right tools that should be used in order to leverage the best and efficient way of working to get better results, this is why it should be used tools that are aligned and compliant with <a href="https://opencontainers.org/about/overview/">OCI</a>.</p>
+</div>
+<div class="paragraph">
+<p>One of the most important changes that has been introduced from Red Hat in containers are tools that do not require root superpowers and it does not depend on a linux daemon, such as Docker, making it more flexible and reachable to a wide range of audience. Buildah, Podman and Skopeo are basic tools that are pretty handy to create, manage and distribute containers and container images aligned to be OCI compatible.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tools-buildah-podman"><a class="anchor" href="#tools-buildah-podman"></a>Buildah and Podman, the basis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let’s take a look at to Buildah and Podman tools in deeper:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/containers/buildah">Buildah</a>: its name comes from the word ‘builder’ pronounced with a Boston accent, a funny story that begins with a simple conversation, as  <a href="https://www.redhat.com/en/authors/daniel-walsh">Daniel Wash</a> Senior Distinguished Engineer at Red Hat states in the article <a href="https://www.redhat.com/en/blog/daemon-haunted-container-world-no-longer-introducing-buildah-10">Introducing Buildah 1.0</a> “<strong><em>why can’t we create a simple tool to build them without running a container daemon? The engineers asked me what to call it and I responded: “just call it builder.” The engineers heard my Boston accent and <code>Buildah</code> was born</em></strong>”.</p>
+</div>
+<div class="paragraph">
+<p>Buildah is basically a command line tool that is design to create and build container images. Despite being a tool designed to be OCI compatible, it could create images from a traditional Dockerfile too, which give flexibility when needed. Speaking of flexibility, Buildah is a perfect tool to be used in scripting and pipelines, actually it comes in default modules in kubernetes pipelines tools like tekton, which is pretty handy when lifecycle automation of a kubernetes application is needed.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/containers/podman">Podman</a>: is a command line tool that gets its name not from a funny story like buildah, but more like most of the tools, is an abbreviation of ‘Pod Manager’, and as its name points is designed to manage and run containers, images and volumes. The podman’s core is based on a golang library called libpod, which is in charge of all actions that the tool could perform.</p>
+</div>
+<div class="paragraph">
+<p>Podman project also has a child project called Podman Desktop, which allows the user to leverage all podman bondages from the desktop. In version v0.14 has introduced kind support to install kubernetes clusters for testing purposes. More details could be found on the <a href="https://podman-desktop.io/">project website</a>.</p>
+</div>
+<div class="paragraph">
+<p>It could be installed in Fedora/Red Hat like distribution through the default package manager a module called container-tools which group a full set of tools to manage containers: <a href="https://github.com/containers/buildah">Buildah</a>, <a href="https://github.com/containers/podman">Podman</a>, <a href="https://github.com/containers/skopeo">Skopeo</a>, <a href="https://github.com/containers/container-selinux">Container-selinux</a>, <a href="https://github.com/containernetworking/plugins">Containernetworking-plugins</a>, <a href="https://github.com/containers/fuse-overlayfs">Fuse-overlayfs</a>, <a href="https://github.com/rootless-containers/slirp4netns">slirp4netns</a>.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="02-oci.html">OCI</a></span>
+  <span class="next"><a href="04-image-creation.html">Image Creation and Build</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
