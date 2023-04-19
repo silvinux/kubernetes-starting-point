@@ -1,6 +1,11 @@
 name: containers
 title: k8s
 version: master
+asciidoc:
+  attributes:
+    source-language: asciidoc@
+    xrefstyle: short@
+    page-toclevels: 2
 nav:
   - modules/ROOT/nav.adoc
 
