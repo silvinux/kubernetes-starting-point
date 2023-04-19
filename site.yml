@@ -3,7 +3,7 @@ runtime:
 
 site:
   title: Kubernetes, where should I start?
-  url: https://redhat-scholars.github.io/course-template
+  url: https://silvinux.github.io/kubernetes-starting-point/
   start_page: containers::index.adoc
 
 content:
