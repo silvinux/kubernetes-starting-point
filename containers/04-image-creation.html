@@ -335,11 +335,11 @@ localhost/alpine-net                                 latest   0a8e9bd5f9c7   2 m
 <p>Now is the turn to demonstrate how to create the same image through the imperative approach. In order to simplify the process, a script has been provided to create and build the image. It should be considered that the ports and name of the image has been changed in order to make both images run at the same time.</p>
 </div>
 <div class="paragraph">
-<p><strong>script - buidah-imperative-script.sh</strong></p>
+<p><strong>script - buildah-imperative-script.sh</strong></p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt; EOF &gt; buidah-imperative-script.sh
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt; EOF &gt; buildah-imperative-script.sh
 #!/bin/bash
 
 set -x
@@ -382,6 +382,14 @@ buildah images
 # run container
 # podman run -dit -p9090:9090 --name alpine-net-imperative localhost/alpine-net-imperative
 EOF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Execute the script <em>buildah-imperative-script.sh</em> with proper permissions:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">chmod +x buildah-imperative-script.sh;./buildah-imperative-script.sh</code></pre>
 </div>
 </div>
 <div class="paragraph">
