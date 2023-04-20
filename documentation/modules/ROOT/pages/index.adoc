@@ -5,14 +5,14 @@
 [.text-center.strong]
 == Insights article to discover Kuberbetes from scratch
 
-This article presents the initial knowledge of the kubernetes world, focoused from an interesting starting point to any new kubernetes entusastic that wish to discover kubernetes from scratch.
+This article presents the initial knowledge of the kubernetes world, focused from an interesting starting point to any new kubernetes enthusiastic that wish to discover kubernetes from scratch.
 
 [.tiles.browse]
 == Browse modules
 
 [.tile]
 .xref:01-introduction.adoc[Get Started]
-* xref:01-introduction.adoc#container-techonologies[container-techonologies]
+* xref:01-introduction.adoc#container-technologies[container-technologies]
 
 [.tile]
 .xref:02-oci.adoc[OCI]

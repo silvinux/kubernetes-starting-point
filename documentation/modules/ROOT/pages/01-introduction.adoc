@@ -7,11 +7,11 @@ To take the first step into the kubernetes world, a good starting point would be
 
 Every history has a beginning and normally is created due to necessity. IT always has been required to share resources, and to do so, the owner must ensure that consumers will not interfere with each other.  
 
-For containers started back in 1979 with Unix chroot. This Unix system call basically allows the user to change a process and its childrens root directory, this way the main process will believe that is in the root directory, isolating it from other processes in the operating system.
+For containers started back in 1979 with Unix chroot. This Unix system call basically allows the user to change a process and its children's root directory, this way the main process will believe that is in the root directory, isolating it from other processes in the operating system.
 
-It is been a long ride since processes isolation started in 1979 until today, where many technologies has been key to evolve and achieve today’s containers maturity, the most revelevants could be summarized below:
+It is been a long ride since processes isolation started in 1979 until today, where many technologies has been key to evolve and achieve today’s containers maturity, the most relevant could be summarized below:
 
-[#container-techonologies]
+[#container-technologies]
 - https://en.wikipedia.org/wiki/FreeBSD_jail[FreeBSD Jails]
 - https://en.wikipedia.org/wiki/Linux-VServer[Linux VServer]
 - https://en.wikipedia.org/wiki/Solaris_Containers[Solaris Containers]
