@@ -7,7 +7,7 @@ Due to the fact that there are a lot of companies that started to use container 
 [#oci-intro]
 == What is the Open Container Initiative
 
-Let’s start talking about the Open Container Initiative (OCI), which is an open project built from the community and sponsored by the Linux Foundation to define guidelines for container technology, which states the requirements about the necessary features in the designing of containers formats and runtimes, to be followed by the industry. 
+Let’s start talking about the Open Container Initiative (OCI), which is an open source project built from the community and sponsored by the Linux Foundation to define guidelines for container technology, which states the requirements about the necessary features in the designing of containers formats and runtimes, to be followed by the industry. 
 
 [#oci-specs]
 == OCI specifications
@@ -18,7 +18,7 @@ image::oci-specs.png[]
 
 * https://github.com/opencontainers/distribution-spec/blob/main/spec.md[Distribution specification]: a.k.a. distribution-spec, which is in charge of defining the requirements used to ease the distribution of agnostic content types in a standardized way through an API protocol.
 
-* https://github.com/opencontainers/image-spec/blob/main/spec.md[Image specification]: a.k.a.  image-spec, the main purpose of this specification is to prepare images design to be compatible with tools that manage container images.The image-spec should follow the below requirements: 
+* https://github.com/opencontainers/image-spec/blob/main/spec.md[Image specification]: a.k.a.  image-spec, primary focuses on prepare images design to be compatible with tools that manage container images. The image-spec should follow the below requirements
 
 ** https://github.com/opencontainers/image-spec/blob/main/manifest.md[Image Manifest]. 
 
