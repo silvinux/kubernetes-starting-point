@@ -171,11 +171,11 @@ The output should be similar to:
 Now is the turn to demonstrate how to create the same image through the imperative approach. In order to simplify the process, a script has been provided to create and build the image. It should be considered that the ports and name of the image has been changed in order to make both images run at the same time.
 
 
-**script - buidah-imperative-script.sh**
+**script - buildah-imperative-script.sh**
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
 ----	
-cat << EOF > buidah-imperative-script.sh
+cat << EOF > buildah-imperative-script.sh
 #!/bin/bash
 
 set -x
@@ -219,6 +219,14 @@ buildah images
 # podman run -dit -p9090:9090 --name alpine-net-imperative localhost/alpine-net-imperative
 EOF
 ----	
+
+Execute the script __buildah-imperative-script.sh__ with proper permissions:
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]	
+----	
+chmod +x buildah-imperative-script.sh;./buildah-imperative-script.sh
+----
 
 In order to review the image, buildah inspect will be used to check the new image.
 
