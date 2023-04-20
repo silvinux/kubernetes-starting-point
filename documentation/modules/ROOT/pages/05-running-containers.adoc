@@ -1,7 +1,7 @@
 = Run a container and verify it works
 include::_attributes.adoc[]
 
-The last step would be test the image running the container. As the images where created exposing different ports and different messages, it should be easy to run two containers at once in the same host.
+The last step would be test the image running the container. As the images where created exposing different ports and messages, it should be easy to run two containers at once in the same host.
 
 Lest's get out hands dirty.
 
