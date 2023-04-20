@@ -139,10 +139,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://en.wikipedia.org/wiki/Imperative_programming">Imperative</a>: It will be focused on executing in the command line step by step all the commands needed to get the final image to be used in the container. This approach is pretty useful when automation is needed and a lot of steps are custom or need to be taken from different sources.</p>
+<p><a href="https://en.wikipedia.org/wiki/Imperative_programming">Imperative</a>: It will be focused on executing in the command line step by step all the commands needed to get the final image to be used in the container. This approach is pretty useful when automation is needed and many steps are custom or need to be taken from different sources.</p>
 </li>
 <li>
-<p><a href="https://en.wikipedia.org/wiki/Declarative_programming">Declarative</a>: It will be used as a source of the steps and information that needs to be passed to build the image. This file could be named Dockerfile or Containerfile, depending on the tools that it will be used to create the image. Most of the tools accept Containerfile except Docker.  This approach does not need to know the actual commands that need to be executed in order to add each step to the resultant images.</p>
+<p><a href="https://en.wikipedia.org/wiki/Declarative_programming">Declarative</a>: It will be used as a source of the steps and information that need to be passed to build the image. This file could be named Dockerfile or Containerfile, depending on the tools that it will be used to create the image. Most of the tools accept Containerfile except Docker.  This approach does not need to know the actual commands that need to be executed to add each step to the resultant images.</p>
 </li>
 </ul>
 </div>
@@ -210,7 +210,7 @@ EOF</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Buildah and Podman support image creation, but buildah will be used in order to demonstrate how to use it when building images with imperative or declarative approaches.
+<code>buildah</code> and <code>podman</code> support image creation, but <code>buildah</code> has been chosen to demonstrate how to use it when building images with imperative or declarative approaches.
 </td>
 </tr>
 </table>
@@ -266,7 +266,7 @@ Storing signatures
 <p>Along with each step, the layer created is represented by its random hashed generated ID.</p>
 </div>
 <div class="paragraph">
-<p>The buildah bud command creates a new image named alpine-net. To see the new image in local, run the command:</p>
+<p>The <code>buildah bud</code> command creates a new image named alpine-net. To see the new image in local run the command:</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -283,7 +283,7 @@ localhost/alpine-net                                 latest   0a8e9bd5f9c7   2 m
 </div>
 </div>
 <div class="paragraph">
-<p>Buildah command can inspect the image metadata once it is built, in order to get the information or parameters instructed into the Containerfile as follows:</p>
+<p><code>buildah</code> command can inspect the image metadata once it is built, to get the information or parameters instructed into the Containerfile as follows:</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -332,7 +332,7 @@ localhost/alpine-net                                 latest   0a8e9bd5f9c7   2 m
 <h2 id="image-build-imperative"><a class="anchor" href="#image-build-imperative"></a>Imperative approach fot building the image</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now is the turn to demonstrate how to create the same image through the imperative approach. In order to simplify the process, a script has been provided to create and build the image. It should be considered that the ports and name of the image has been changed in order to make both images run at the same time.</p>
+<p>Now is the turn to demonstrate how to create the same image through the imperative approach. To simplify the process, a script has been provided to create and build the image. It should be considered that the ports and name of the image has been changed to make both images run at the same time.</p>
 </div>
 <div class="paragraph">
 <p><strong>script - buildah-imperative-script.sh</strong></p>
@@ -385,7 +385,7 @@ EOF</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Execute the script <em>buildah-imperative-script.sh</em> with proper permissions:</p>
+<p>Execute the script <code>buildah-imperative-script.sh</code> with proper permissions:</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -393,7 +393,7 @@ EOF</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In order to review the image, buildah inspect will be used to check the new image.</p>
+<p>To review the image, <code>buildah inspect</code> will be used to check the new image.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
