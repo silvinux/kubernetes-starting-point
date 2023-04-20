@@ -154,13 +154,18 @@
 <p>Buildah is basically a command line tool that is design to create and build container images. Despite being a tool designed to be OCI compatible, it could create images from a traditional Dockerfile too, which give flexibility when needed. Speaking of flexibility, Buildah is a perfect tool to be used in scripting and pipelines, actually it comes in default modules in kubernetes pipelines tools like tekton, which is pretty handy when lifecycle automation of a kubernetes application is needed.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/containers/podman">Podman</a>: is a command line tool that gets its name not from a funny story like buildah, but more like most of the tools, is an abbreviation of ‘Pod Manager’, and as its name points is designed to manage and run containers, images and volumes. The podman’s core is based on a golang library called libpod, which is in charge of all actions that the tool could perform.</p>
+<p><a href="https://github.com/containers/podman">Podman</a>: is a command line tool that its name does not come from a funny story like buildah, but more like most of the tools, is an abbreviation of ‘Pod Manager’, and as its name points is designed to manage and run containers, images and volumes. The podman’s core is based on a golang library called libpod, which is in charge of all actions that the tool could perform. .</p>
 </div>
 <div class="paragraph">
 <p>Podman project also has a child project called Podman Desktop, which allows the user to leverage all podman bondages from the desktop. In version v0.14 has introduced kind support to install kubernetes clusters for testing purposes. More details could be found on the <a href="https://podman-desktop.io/">project website</a>.</p>
 </div>
 <div class="paragraph">
-<p>It could be installed in Fedora/Red Hat like distribution through the default package manager a module called container-tools which group a full set of tools to manage containers: <a href="https://github.com/containers/buildah">Buildah</a>, <a href="https://github.com/containers/podman">Podman</a>, <a href="https://github.com/containers/skopeo">Skopeo</a>, <a href="https://github.com/containers/container-selinux">Container-selinux</a>, <a href="https://github.com/containernetworking/plugins">Containernetworking-plugins</a>, <a href="https://github.com/containers/fuse-overlayfs">Fuse-overlayfs</a>, <a href="https://github.com/rootless-containers/slirp4netns">slirp4netns</a>.</p>
+<p><em>container-tools</em> is a group of packages in Fedora/Red Hat like distributions that includes the necessary packages to manage containers, such as: <a href="https://github.com/containers/buildah">Buildah</a>, <a href="https://github.com/containers/podman">Podman</a>, <a href="https://github.com/containers/skopeo">Skopeo</a>, <a href="https://github.com/containers/container-selinux">Container-selinux</a>, <a href="https://github.com/containernetworking/plugins">Containernetworking-plugins</a>, <a href="https://github.com/containers/fuse-overlayfs">Fuse-overlayfs</a>, <a href="https://github.com/rootless-containers/slirp4netns">slirp4netns</a>. Install as follows:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo dnf module install container-tools -y</code></pre>
+</div>
 </div>
 </div>
 </div>
