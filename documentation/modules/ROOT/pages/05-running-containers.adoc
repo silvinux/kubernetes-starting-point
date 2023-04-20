@@ -1,12 +1,14 @@
 = Run a container and verify it works
 include::_attributes.adoc[]
 
-The last step would be test the image running the container. As the images where created exposing diferent ports and diferents messages, it should be easy to run two containers at once in the same host. Lest's get out hands dirty.
+The last step would be test the image running the container. As the images where created exposing diferent ports and diferents messages, it should be easy to run two containers at once in the same host.
+
+Lest's get out hands dirty.
 
 [#testing-declarative]
 == Testing the image building using the declarative approach
 
-For the first approach, port 8080 will be used and the index.html will be populated with the message "Hello Kubernetes, DECLARATIVE". 
+For the declarative approach, port 8080 will be used and the index.html will be populated with the message "Hello Kubernetes, DECLARATIVE". 
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
@@ -31,7 +33,7 @@ CONTAINER ID  IMAGE                                   COMMAND               CREA
 77b8ce568080  localhost/alpine-net:latest  python3 -m http.s...  5 hours ago  Created     0.0.0.0:8080->8080/tcp  alpine-net
 ----
 
-And it could be confirmed that the container is successfully working using the following command:
+To confirm that the container is successfully working use the following command:
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
@@ -50,7 +52,7 @@ Hello Kubernetes, DECLARATIVE
 [#testing-imperative]
 == Testing the image building using the imperative approach
 
-For the second approach, port 9090 will be used and the index.html will be populated with the message "Hello Kubernetes, IMPERATIVE". 
+For the imperative approach, port 9090 will be used and the index.html will be populated with the message "Hello Kubernetes, IMPERATIVE". 
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
@@ -65,6 +67,7 @@ Once the container is running, it could be checked using the command:
 ----	
 podman ps -a   
 ----
+
 The output should be similar to:
 
 [.console-input]
@@ -74,7 +77,7 @@ CONTAINER ID  IMAGE                                   COMMAND               CREA
 77b8ce569090 localhost/alpine-net-imperative:latest  python3 -m http.s...  5 hours ago  Created     0.0.0.0:9090->9090/tcp  alpine-net-imperative
 ----
 
-And it could be confirmed that the container is successfully working using the following command:
+To confirm that the container is successfully working use the following command:
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	

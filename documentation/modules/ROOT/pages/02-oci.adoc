@@ -7,7 +7,7 @@ Due to the fact that there are a lot of companies that started to use container 
 [#oci-intro]
 == What is the Open Container Initiative
 
-Let’s start talking about the Open Container Initiative (OCI), which is an open project built from the community and sponsored by the Linux Foundation to define guidelines for container technology, which will state the requirements about the necessary features in the designing of containers formats and runtimes, to be followed by the industry. 
+Let’s start talking about the Open Container Initiative (OCI), which is an open project built from the community and sponsored by the Linux Foundation to define guidelines for container technology, which states the requirements about the necessary features in the designing of containers formats and runtimes, to be followed by the industry. 
 
 [#oci-specs]
 == OCI specifications
@@ -41,9 +41,8 @@ image::oci-specs.png[]
 [#oci-implementation]
 == OCI implementation
 
-Basically a simple OCI implementation requires at least to specifications to be used, image-spec and runtime-spec and it would follow the workflow described in the below diagram.
+A simple OCI implementation requires at least two specifications to be used, image-spec and runtime-spec and it would follow the workflow described in the below diagram.
 
 image::oci-implementation.png[]
 
-
-As it could be seen, to have the same user experience (UX) using different tools (docker, podman, rkt), should have the same result when the container is managed. The diagram shows that image that includes the necessary information to be deployed in a Container, once the image has been downloaded is sent to the runtime to be processed, the filesystem is unpacked and run it at this point.
+OCI standardization's primary goal is to give the same user experience (UX) using different tools (docker, podman, rkt) when a container is managed. The diagram shows that image includes the necessary information to be deployed in a Container, once the image has been downloaded is sent to the runtime to be processed, so the filesystem unpack all the data and to run it at this point.
